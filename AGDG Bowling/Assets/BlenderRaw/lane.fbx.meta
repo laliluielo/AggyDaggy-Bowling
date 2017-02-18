@@ -1,29 +1,38 @@
 fileFormatVersion: 2
-guid: be8f568acd1619548bb89012f4db6ee9
-timeCreated: 1487185049
+guid: 7c2c27894e9d08f49b82ce6eae8f90a7
+timeCreated: 1487274040
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: LPPin
-    100004: Sphere
-    400000: //RootNode
-    400002: LPPin
-    400004: Sphere
-    2300000: //RootNode
-    2300002: LPPin
-    2300004: Sphere
-    3300000: //RootNode
-    3300002: LPPin
-    3300004: Sphere
-    4300000: LPPin
-    4300002: Sphere
-    6400000: //RootNode
-    6400002: LPPin
-    6400004: Sphere
+    100000: Arrows Area
+    100002: Camera
+    100004: Dots Area
+    100006: Downlane Stripes
+    100008: Lamp
+    100010: Lane
+    100012: //RootNode
+    400000: Arrows Area
+    400002: Camera
+    400004: Dots Area
+    400006: Downlane Stripes
+    400008: Lamp
+    400010: Lane
+    400012: //RootNode
+    2300000: Arrows Area
+    2300002: Dots Area
+    2300004: Downlane Stripes
+    2300006: Lane
+    3300000: Arrows Area
+    3300002: Dots Area
+    3300004: Downlane Stripes
+    3300006: Lane
+    4300000: Downlane Stripes
+    4300002: Arrows Area
+    4300004: Dots Area
+    4300006: Lane
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -48,7 +57,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -63,8 +72,8 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 2
-    tangentImportMode: 2
+    normalImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
