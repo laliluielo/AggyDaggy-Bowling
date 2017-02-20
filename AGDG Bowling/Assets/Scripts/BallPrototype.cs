@@ -19,6 +19,7 @@ public class BallPrototype: MonoBehaviour {
 	void Start () {
         rgbdy = GetComponent<Rigidbody>();
         rgbdy.maxAngularVelocity = 400f;
+        rgbdy.useGravity = false;
 	}
 	
 	// Update is called once per frame
@@ -27,6 +28,7 @@ public class BallPrototype: MonoBehaviour {
         {
             rgbdy.AddRelativeForce(Vector3.forward * strength);
             rgbdy.AddRelativeTorque(Vector3.forward * revs);
+            rgbdy.useGravity = true;
             launch = false;
             inPlay = true;
         }

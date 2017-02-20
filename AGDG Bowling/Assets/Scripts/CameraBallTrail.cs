@@ -18,9 +18,8 @@ public class CameraBallTrail: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        float zValue = Mathf.Clamp(ball.transform.position.z + offset, 0, 18f);
+        float zValue = Mathf.Clamp(ball.transform.position.z + offset, -10f, 16f);
         transform.position = new Vector3(transform.position.x, transform.position.y, zValue);
-        transform.LookAt(ball.transform);
 
     }
 
