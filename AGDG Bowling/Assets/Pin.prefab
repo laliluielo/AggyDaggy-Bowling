@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 33401934205029344}
   - component: {fileID: 23317230004315730}
   - component: {fileID: 54907089690687562}
+  - component: {fileID: 114185801498272802}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -209,6 +210,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: be8f568acd1619548bb89012f4db6ee9, type: 3}
+--- !u!114 &114185801498272802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284735761415332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739066c1cfc5e0443b1af8f88836c2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 0.9
 --- !u!135 &135640225634424930
 SphereCollider:
   m_ObjectHideFlags: 1
