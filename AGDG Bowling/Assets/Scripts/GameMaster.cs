@@ -74,6 +74,11 @@ public class GameMaster: MonoBehaviour {
                 helpPanel.gameObject.SetActive(true);
             }
         }
+
+        if (Input.GetButtonDown("Throw Ball") && !IsInvoking("ShotFinished") && !ball.inPlay)
+        {
+            ball.Launch();
+        }
         
     }
 

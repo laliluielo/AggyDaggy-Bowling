@@ -42,16 +42,12 @@ public class BallPrototype: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!inPlay && (Input.GetButtonDown("Jump") || launch))
-        {
-            Launch();
-        }
 
 
         currentSpeed = rgbdy.velocity.magnitude;
     }
 
-    private void Launch()
+    public void Launch()
     {
         startPosition = transform.position;
         startRotation = transform.rotation;
