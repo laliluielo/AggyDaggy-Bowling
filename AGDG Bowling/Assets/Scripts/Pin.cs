@@ -51,7 +51,7 @@ public class Pin : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Lane" )
         {
-            print("touching the lane!");
+            //print("touching the lane!");
             OnLane = true;
         }
     }
@@ -60,7 +60,7 @@ public class Pin : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Lane")
         {
-            print("not touching the lane!");
+            //print("not touching the lane!");
             OnLane = false;
         }
     }

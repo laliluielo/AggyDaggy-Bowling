@@ -9,9 +9,12 @@ public class BallPrototype: MonoBehaviour {
     public Slider strSlider;
     public Slider hookSlider;
     
-    public float strength;
-    public float revs;
+    public float initialSpeed; // m/s
+    public float initialRevs; // rad/s
     public float hookStrength;
+    public float mass; //  kg
+    public float currentSpeed;
+
     public bool inPlay = false;
 
 
@@ -31,6 +34,7 @@ public class BallPrototype: MonoBehaviour {
         rgbdy.useGravity = false;
         sSelection = FindObjectOfType<ShotSelection>();
         gameMaster = FindObjectOfType<GameMaster>();
+        mass = rgbdy.mass;
 
 
 
@@ -38,35 +42,38 @@ public class BallPrototype: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Jump") || launch)
+        if (!inPlay && (Input.GetButtonDown("Jump") || launch))
         {
             Launch();
         }
 
 
+        currentSpeed = rgbdy.velocity.magnitude;
     }
 
     private void Launch()
     {
         startPosition = transform.position;
         startRotation = transform.rotation;
-        rgbdy.AddRelativeForce(Vector3.forward * strength);
-        rgbdy.AddRelativeTorque(Vector3.forward * revs);
+        //float initialKE = (1 / 2 * mass * Mathf.Pow(initialSpeed, 2.0f));
+        rgbdy.AddRelativeForce(Vector3.forward * initialSpeed, ForceMode.VelocityChange);
+        
+        rgbdy.AddRelativeTorque(Vector3.forward * initialRevs, ForceMode.VelocityChange);
         rgbdy.useGravity = true;
         launch = false;
         inPlay = true;
         sSelection.BallLaunched();
     }
 
-    void FixedUpdate()
-    {
-        if (inPlay)
-        {
-            Vector3 hook = rgbdy.angularVelocity * hookStrength;
-            //Debug.Log("Rotation vector: " + rgbdy.angularVelocity + ", hook vector :" + hook);
-            rgbdy.AddForce(-hook.z, 0, 0);
-        }
-    }
+    //void FixedUpdate()
+    //{
+    //    if (inPlay)
+    //    {
+    //        Vector3 hook = rgbdy.angularVelocity * hookStrength;
+    //        //Debug.Log("Rotation vector: " + rgbdy.angularVelocity + ", hook vector :" + hook);
+    //        rgbdy.AddForce(-hook.z, 0, 0);
+    //    }
+    //}
 
     void OnCollisionEnter(Collision collision)
     {
@@ -88,12 +95,12 @@ public class BallPrototype: MonoBehaviour {
 
     public void SetStrength()
     {
-        strength = strSlider.value;
+        initialSpeed = strSlider.value;
     }
 
     public void SetHook()
     {
-        revs = hookSlider.value;
+        initialRevs = hookSlider.value;
     }
 
     public void BallReset()
@@ -105,6 +112,7 @@ public class BallPrototype: MonoBehaviour {
         transform.position = startPosition;
         transform.rotation = startRotation;
         sSelection.NewShot();
+        inPlay = false;
 
           
     }

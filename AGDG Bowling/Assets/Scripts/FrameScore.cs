@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FrameScore: MonoBehaviour {
+public class FrameScore : MonoBehaviour
+{
 
     private List<TextMeshProUGUI> scores;
 
@@ -12,11 +13,7 @@ public class FrameScore: MonoBehaviour {
     {
         scores = new List<TextMeshProUGUI>(GetComponentsInChildren<TextMeshProUGUI>());
         //score [1] is the first shot, score[2] is the second, score[3] is the total
-        //The 10th frame is an exception, and has 3 shots. score [4] is the total
-        foreach (TextMeshProUGUI text in scores)
-        {
-            text.text = " ";
-        }
+        clearFrames();
 
     }
 
@@ -26,15 +23,25 @@ public class FrameScore: MonoBehaviour {
 
     }
 
-    public void AddScore(int pinfall, int shotNumber)
+
+    public void setScore(string firstBall = " ", string secondBall= " ", string Total = " " , bool Tenth = false, string thirdBall = " ")
     {
-        if (shotNumber == 0)        //first ball
+        scores[0].text = firstBall;
+        scores[1].text = secondBall;
+        scores[2].text = Total;
+
+        if (Tenth)
         {
-            scores[0].text = pinfall.ToString();
+            scores[2].text = thirdBall;
+            scores[3].text = Total;
         }
-        else
+    }
+
+    public void clearFrames()
+    {
+        foreach (TextMeshProUGUI text in scores)
         {
-            scores[1].text = pinfall.ToString();
+            text.text = " ";
         }
     }
 }

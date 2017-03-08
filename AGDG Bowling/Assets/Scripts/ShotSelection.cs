@@ -10,12 +10,14 @@ public class ShotSelection: MonoBehaviour {
 
     private Vector3 startPosition;
     private Vector3 startTransform;
-    private DirectionalAim directionalAim;
+    //private DirectionalAim directionalAim;
+    private circleAiming circleAim;
 
 	// Use this for initialization
     void Start()
     {
-        directionalAim = FindObjectOfType<DirectionalAim>();
+        //directionalAim = FindObjectOfType<DirectionalAim>();
+        circleAim = FindObjectOfType<circleAiming>();
     }
 
     void Update()
@@ -51,11 +53,14 @@ public class ShotSelection: MonoBehaviour {
 
     public void BallLaunched()
     {
-        directionalAim.gameObject.SetActive(false);
+        //directionalAim.gameObject.SetActive(false);
+        circleAim.gameObject.SetActive(false);
+
     }
 
     public void NewShot()
     {
-        directionalAim.gameObject.SetActive(true);
+        //directionalAim.gameObject.SetActive(true);
+        circleAim.gameObject.SetActive(true);
     }
 }

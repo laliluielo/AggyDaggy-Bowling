@@ -35,10 +35,12 @@ public class PinRack: MonoBehaviour {
 
     public void TidyPins()
     {
-
+        //print("Got to this point");
         foreach (Pin pin in pins)
         {
+            //print("In the foreach");
             pin.Tidy();
+            //print("Done the foreach");
         }
     }
 
