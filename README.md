@@ -1,2 +1,2 @@
 # AggyDaggy-Bowling
-A nodev's first game.
+A bowling prototype written to familiarize myself with the game development process.
